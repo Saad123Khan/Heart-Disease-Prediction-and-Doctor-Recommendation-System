@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+
+    <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+
+<body style="background-color: aliceblue;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <h1 class="text-center text-light">
+          <i class="fas fa-ship"></i> Heart Disease Predictor Admin Pannel
+        </h1>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-warning">Logout</button></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1 style="text-align: center; margin-top: 70px;">
+        HELLO ADMIN
+    </h1>
+
+
+    <h1 style="text-align: center; margin-top: 40px;"><a class="nav-link" href="{% url 'userlist' %}"><button type="button" class="btn btn-warning">Userlist</button></a></h1>
+    <h1 style="text-align: center; margin-top: 20px;"><a class="nav-link" href="{% url 'mess' %}"><button type="button" class="btn btn-warning">Messages</button></a></h1>
+    <h1 style="text-align: center; margin-top: 20px;"><a class="nav-link" href="{% url 'pred' %}"><button type="button" class="btn btn-warning">Predictions</button></a></h1>
+</html>

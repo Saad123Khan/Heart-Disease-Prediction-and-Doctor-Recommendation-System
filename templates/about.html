@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction System</title>
+   
+
+    <style>
+#message {
+
+display:none;
+
+background: #f1f1f1;
+
+color: #000;
+
+position: relative;
+
+padding: 20px;
+
+margin-top: 10px;
+
+}
+
+#message p {
+
+padding: 10px 35px;
+
+font-size: 18px;
+
+}
+.valid {
+
+color: rgb(3, 184, 190);
+
+}
+.valid:before {
+
+position: relative;
+
+left: -35px;
+
+}
+
+.invalid {
+
+color: red;
+
+}
+.invalid:before {
+
+position: relative;
+
+left: -35px;
+
+}
+
+   </style>
+
+<script>
+var myInput = document.getElementById("psw");
+
+var letter = document.getElementById("letter");
+
+var capital = document.getElementById("capital");
+
+var number = document.getElementById("number");
+
+var length = document.getElementById("length")
+
+
+myInput.onfocus = function() {
+
+  document.getElementById("message").style.display = "block";
+
+}
+
+myInput.onblur = function() {
+
+  document.getElementById("message").style.display = "none";
+
+}
+myInput.onkeyup = function() {
+
+var lowerCaseLetters = /[a-z]/g;
+
+if(myInput.value.match(lowerCaseLetters)) {
+
+letter.classList.remove("invalid");
+
+letter.classList.add("valid");
+
+} else {
+
+letter.classList.remove("valid");
+
+letter.classList.add("invali");
+
+}
+
+var upperCaseLetters = /[A-Z]/g;
+
+if(myInput.value.match(upperCaseLetters)) {
+
+capital.classList.remove("invalid");
+
+capital.classList.add("valid");
+
+}
+ else {
+ capital.classList.remove("valid");
+
+capital.classList.add("invalid");
+
+}
+
+var numbers = /[0-9]/g;
+
+if(myInput.value.match(numbers)) {
+
+number.classList.remove("invalid");
+
+number.classList.number.classList.add("valid");
+
+} else {
+
+number.classList.remove("valid");
+
+number.classList.add("invalid");
+
+}
+
+if(myInput.value.length >= 8) {
+
+length.classList.remove("invalid");
+
+length.classList.add("valid");
+
+} else {
+
+length.classList.remove("valid");
+
+length.classList.add("invalid");
+
+}
+
+}
+
+
+</script>
+
+
+
+
+
+    <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body style="background-color: aliceblue">
+    
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+\      <h1 class="text-center text-light">
+        <i class="fas fa-ship"></i> Heart Disease Predictor
+      </h1>
+    
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link ms-4"href="{% url 'main' %}">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'outputs' %}">DOCTOR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link "  href="{% url 'contactus'%}">CONTACT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'about' %}">ABOUT</a>
+          </li>   
+        </ul>
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"><button type="button" class="btn btn-warning">Logout</button></a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+       </div><h1 class="text-center my-4">About US</h1>
+<div class="container text-dark">
+
+      <h3>&#187; Age - age in years</h3><hr>
+      <h3>&#187; Sex - (1 = male, 0 = female)</h3><hr>
+      <h3>&#187; CP - chest pain type</h3><hr>
+      <h3>&#187; 0: Typical angina: chest pain related decrease blood supply to the heart </h3><hr>
+      <h3>&#187; 1: Atypical angina: chest pain not related to heart</h3><hr>
+      <h3>&#187; 2: Non-anginal pain: typically esophageal spasms (non heart related)</h3><hr>
+      <h3>&#187; 3: Asymptomatic: chest pain not showing signs of disease</h3><hr>
+      <h3>&#187; Trestbps - resting blood pressure (in mm Hg on admission to the hospital) anything above 130-140 is typically cause for concern</h3><hr>
+      <h3>&#187; Chol - serum cholestoral in mg/dl</h3><hr>
+      <h3>&#187; Serum = LDL + HDL + .2 * triglycerides</h3><hr>
+      <h3>&#187; Above 200 is cause for concern</h3><hr>
+      <h3>&#187; FBS - (fasting blood sugar > 120 mg/dl) (1 = true; 0 = false)</h3><hr>
+      <h3>&#187; 126' mg/dL signals diabetes</h3><hr>
+      <h3>&#187; Restecg - resting electrocardiographic results</h3><hr>
+      <h3>&#187; 0: Nothing to note</h3><hr>
+      <h3>&#187; 1: ST-T Wave abnormality</h3><hr>
+      <h3>&#187; Can range from mild symptoms to severe problems</h3><hr>
+      <h3>&#187; Signals non-normal heart beat</h3><hr>
+      <h3>&#187; 2: Possible or definite left ventricular hypertrophy</h3><hr>
+      <h3>&#187; Enlarged heart's main pumping chamber</h3><hr>
+      <h3>&#187; Thalach - maximum heart rate achieved</h3><hr>
+      <h3>&#187;  Exang - exercise induced angina (1 = yes; 0 = no)</h3><hr>
+      <h3>&#187;  Oldpeak - ST depression induced by exercise relative to rest looks at stress of heart during excercise unhealthy heart will stress more</h3><hr>
+      <h3>&#187;  Slope - the slope of the peak exercise ST segment</h3><hr>
+      <h3>&#187;  0: Upsloping: better heart rate with excercise (uncommon)</h3><hr>
+      <h3>&#187;  1: Flatsloping: minimal change (typical healthy heart)</h3><hr>
+      <h3>&#187;  2: Downslopins: signs of unhealthy heart</h3><hr>
+      <h3>&#187;  Ca - number of major vessels (0-3) colored by flourosopy</h3><hr>
+      <h3>&#187;  Colored vessel means the doctor can see the blood passing through</h3><hr>
+      <h3>&#187;  The more blood movement the better (no clots)</h3><hr>
+      <h3>&#187;  Thal - Thalium stress result</h3><hr>
+      <h3>&#187;  1,3: Normal</h3><hr>
+      <h3>&#187;  6: Fixed defect: used to be defect but ok now</h3><hr>
+      <h3>&#187;  7: Reversable defect: no proper blood movement when excercising</h3><hr>
+      <h3>&#187;  Target - have disease or not (1=yes, 0=no) (= the predicted attribute)</h3><hr>
+
+</div>
+<br>
+<hr>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
